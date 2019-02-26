@@ -30,6 +30,7 @@ RUN build_deps="curl ca-certificates gnupg2"; \
     DEBIAN_FRONTEND=noninteractive \
     apt-get install -y --no-install-recommends ${build_deps}; \
     apt-key add <(curl -L https://dl.winehq.org/wine-builds/Release.key); \
+    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 76F1A20FF987672F; \
     echo 'deb http://dl.winehq.org/wine-builds/ubuntu/ xenial main' > /etc/apt/sources.list.d/wine.list; \
     dpkg --add-architecture i386; \
     apt-get update; \
